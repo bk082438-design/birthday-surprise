@@ -1,0 +1,1321 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  background: #f7efe8;
+  color: #3d2927;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+button {
+  font: inherit;
+}
+
+.birthday-site {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background: #f7efe8;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+
+  display: none !important;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.screen.active {
+  display: flex !important;
+  animation: screenReveal 0.65s ease both;
+}
+
+@keyframes screenReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    filter: blur(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+
+/* =========================
+   SHARED
+========================= */
+
+.main-button {
+  appearance: none;
+  border: 1px solid rgba(108, 54, 55, 0.32);
+  background: #713c3e;
+  color: #fffaf6;
+
+  min-width: 175px;
+  padding: 15px 30px 14px;
+
+  border-radius: 999px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 22px rgba(83, 43, 43, 0.14);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.main-button:hover {
+  transform: translateY(-2px);
+  background: #603235;
+  box-shadow:
+    0 12px 28px rgba(83, 43, 43, 0.18);
+}
+
+.main-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.chapter-label,
+.eyebrow,
+.error-code {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  color: #9a6a68;
+}
+
+
+/* =========================
+   DECORATIONS
+========================= */
+
+.decor,
+.error-decoration,
+.troll-decoration,
+.birthday-decoration,
+.card-decoration,
+.note-decoration,
+.ending-decoration {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+.decor {
+  color: rgba(122, 65, 67, 0.28);
+  font-size: 22px;
+}
+
+.decor-one {
+  top: 13%;
+  left: 13%;
+}
+
+.decor-two {
+  top: 22%;
+  right: 13%;
+  font-size: 27px;
+}
+
+.decor-three {
+  bottom: 18%;
+  left: 18%;
+  font-size: 25px;
+}
+
+
+/* =========================
+   SCREEN 1 — OPENING
+========================= */
+
+.opening-screen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 32px 24px;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(221, 157, 159, 0.22),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(126, 56, 59, 0.08),
+      transparent 32%
+    ),
+    #f7efe8;
+}
+
+.opening-content {
+  width: min(100%, 430px);
+  position: relative;
+  z-index: 2;
+}
+
+.opening-content .eyebrow {
+  margin-bottom: 24px;
+}
+
+.opening-content h1 {
+  margin: 0;
+
+  color: #452d2b;
+
+  font-size: clamp(46px, 14vw, 76px);
+  line-height: 0.95;
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+
+.opening-content h1 span {
+  color: #713c3e;
+  font-style: italic;
+}
+
+.opening-message {
+  margin: 28px 0 0;
+
+  font-size: 18px;
+  line-height: 1.5;
+
+  color: #624846;
+}
+
+.tiny-note {
+  margin: 10px 0 34px;
+
+  font-family: "Comic Sans MS", "Bradley Hand", cursive;
+  font-size: 12px;
+
+  color: #9a6a68;
+
+  transform: rotate(-2deg);
+}
+
+
+/* =========================
+   SCREEN 2 & 3 — ERRORS
+========================= */
+
+.error-screen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 32px 24px;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(159, 90, 91, 0.13),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(217, 177, 163, 0.28),
+      transparent 32%
+    ),
+    #eadbd3;
+}
+
+.error-content {
+  width: min(100%, 430px);
+  position: relative;
+  z-index: 2;
+}
+
+.error-code {
+  margin-bottom: 24px;
+  color: #9a5959;
+}
+
+.error-content h2 {
+  margin: 0 0 18px;
+
+  font-size: clamp(54px, 16vw, 84px);
+  line-height: 0.9;
+  font-weight: 500;
+
+  color: #553331;
+  letter-spacing: -3px;
+}
+
+.error-content p:not(.error-code) {
+  margin: 0 auto 34px;
+
+  max-width: 330px;
+
+  font-size: 17px;
+  line-height: 1.65;
+
+  color: #654845;
+}
+
+.error-decoration {
+  top: 14%;
+  left: 14%;
+
+  font-size: 28px;
+  color: rgba(113, 60, 62, 0.3);
+
+  transform: rotate(-10deg);
+}
+
+.error-decoration-right {
+  top: auto;
+  left: auto;
+  right: 13%;
+  bottom: 15%;
+
+  transform: rotate(12deg);
+}
+
+
+/* =========================
+   SCREEN 4 — TROLL
+========================= */
+
+.final-troll-screen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 32px 24px;
+
+  background:
+    radial-gradient(
+      circle at 80% 18%,
+      rgba(123, 62, 64, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(210, 163, 151, 0.25),
+      transparent 32%
+    ),
+    #f1e4dd;
+}
+
+.troll-content {
+  width: min(100%, 430px);
+}
+
+.troll-decoration {
+  color: rgba(113, 60, 62, 0.25);
+  font-size: 25px;
+}
+
+.troll-star {
+  top: 13%;
+  left: 17%;
+}
+
+.troll-heart {
+  right: 14%;
+  bottom: 16%;
+  font-size: 30px;
+}
+
+.troll-content h2 {
+  margin: 22px 0 8px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(35px, 10vw, 58px);
+  line-height: 1;
+
+  color: #513130;
+  letter-spacing: -2px;
+}
+
+.troll-main {
+  margin: 0;
+
+  font-size: 19px;
+  color: #684947;
+}
+
+.troll-wait {
+  margin: 32px 0 5px;
+
+  font-family: "Comic Sans MS", "Bradley Hand", cursive;
+  font-size: 15px;
+
+  color: #8f6260;
+}
+
+.troll-found {
+  margin: 0;
+
+  font-size: 25px;
+  font-style: italic;
+
+  color: #713c3e;
+}
+
+.troll-annoying {
+  margin: 9px 0 28px;
+
+  font-size: 13px;
+  color: #8b6461;
+}
+
+.loading-area {
+  width: min(100%, 280px);
+  margin: 0 auto;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(113, 60, 62, 0.12);
+}
+
+.loading-progress {
+  width: 0;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: #713c3e;
+
+  transition: width 0.08s linear;
+}
+
+.loading-percentage {
+  margin: 9px 0 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  color: #8d6562;
+}
+
+.loading-failed {
+  margin: 20px 0 20px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+
+  color: #713c3e;
+
+  transition: opacity 0.35s ease;
+}
+
+
+/* =========================
+   SCREEN 5 — BIRTHDAY
+========================= */
+
+.birthday-screen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 40px 24px;
+
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(225, 157, 161, 0.25),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 10% 80%,
+      rgba(120, 53, 57, 0.08),
+      transparent 28%
+    ),
+    #faf0e9;
+}
+
+.birthday-content {
+  width: min(100%, 430px);
+  position: relative;
+  z-index: 2;
+}
+
+.birthday-content h1 {
+  margin: 20px 0 18px;
+
+  font-size: clamp(38px, 11vw, 60px);
+  line-height: 0.98;
+  font-weight: 500;
+
+  color: #49302e;
+  letter-spacing: -2px;
+}
+
+.birthday-title {
+  margin: 0;
+
+  font-size: 22px;
+  line-height: 1.4;
+
+  color: #684644;
+}
+
+.birthday-title span {
+  color: #713c3e;
+  font-style: italic;
+}
+
+.birthday-art {
+  width: 150px;
+  height: 110px;
+
+  margin: 28px auto 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.birthday-art-placeholder {
+  width: 94px;
+  height: 94px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed rgba(113, 60, 62, 0.35);
+  border-radius: 50%;
+
+  color: #a76e6c;
+  font-size: 30px;
+
+  background: rgba(255, 250, 246, 0.45);
+}
+
+.birthday-message {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  color: #573b39;
+}
+
+.birthday-submessage {
+  margin: 7px auto 27px;
+
+  max-width: 310px;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  color: #8a6460;
+}
+
+.birthday-decoration {
+  color: rgba(113, 60, 62, 0.25);
+}
+
+.birthday-star-one {
+  top: 14%;
+  left: 12%;
+  font-size: 24px;
+}
+
+.birthday-star-two {
+  top: 22%;
+  right: 13%;
+  font-size: 20px;
+}
+
+.birthday-heart-one {
+  bottom: 17%;
+  left: 15%;
+  font-size: 27px;
+}
+
+.birthday-heart-two {
+  right: 14%;
+  bottom: 12%;
+  font-size: 22px;
+}
+
+
+/* =========================
+   SCREEN 6 — CARD
+========================= */
+
+.card-screen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 40px 24px;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(220, 158, 157, 0.2),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(120, 55, 57, 0.08),
+      transparent 30%
+    ),
+    #f7eee7;
+}
+
+.card-screen-content {
+  width: min(100%, 430px);
+}
+
+.card-screen-content h2 {
+  margin: 18px 0 8px;
+
+  font-size: clamp(34px, 10vw, 53px);
+  line-height: 1;
+  font-weight: 500;
+
+  color: #49302e;
+  letter-spacing: -1.5px;
+}
+
+.card-instruction {
+  margin: 0 0 28px;
+
+  font-family: "Comic Sans MS", "Bradley Hand", cursive;
+  font-size: 13px;
+
+  color: #916865;
+
+  transform: rotate(-2deg);
+}
+
+
+/* Envelope / physical card */
+
+.gift-card {
+  position: relative;
+
+  width: min(88vw, 330px);
+  height: 220px;
+
+  margin: 0 auto;
+
+  cursor: pointer;
+
+  perspective: 1000px;
+}
+
+.card-base {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffaf5,
+      #eadbd0
+    );
+
+  border: 1px solid rgba(113, 60, 62, 0.2);
+
+  box-shadow:
+    0 18px 38px rgba(82, 48, 45, 0.16);
+
+  overflow: hidden;
+}
+
+.card-base::before,
+.card-base::after {
+  content: "";
+  position: absolute;
+
+  width: 1px;
+  height: 145%;
+
+  top: -22%;
+
+  background: rgba(113, 60, 62, 0.13);
+}
+
+.card-base::before {
+  left: 50%;
+  transform: rotate(34deg);
+}
+
+.card-base::after {
+  left: 50%;
+  transform: rotate(-34deg);
+}
+
+.card-inner {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2;
+}
+
+.card-small-text {
+  margin: 0 0 6px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  color: #9a706b;
+}
+
+.card-inner h3 {
+  margin: 0;
+
+  font-size: 34px;
+  font-weight: 500;
+  font-style: italic;
+
+  color: #713c3e;
+}
+
+.card-heart {
+  margin: 8px 0 0;
+
+  font-size: 23px;
+
+  color: #8e4e50;
+}
+
+.card-cover {
+  position: absolute;
+  inset: 0;
+
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8e9df,
+      #e7cfc4
+    );
+
+  border: 1px solid rgba(113, 60, 62, 0.18);
+
+  transform-origin: top center;
+
+  transition:
+    transform 0.85s cubic-bezier(.2,.75,.25,1),
+    opacity 0.35s ease;
+}
+
+.card-cover::before,
+.card-cover::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+
+  width: 51%;
+  height: 100%;
+
+  background: rgba(255, 250, 246, 0.18);
+}
+
+.card-cover::before {
+  left: 0;
+
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+}
+
+.card-cover::after {
+  right: 0;
+
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+}
+
+.card-cover-line {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 54px;
+  height: 54px;
+
+  transform: translate(-50%, -50%) rotate(45deg);
+
+  border: 1px solid rgba(113, 60, 62, 0.2);
+
+  background: #f4e1d8;
+}
+
+.card-cover p {
+  position: relative;
+  z-index: 3;
+
+  margin: 65px 0 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  color: #815654;
+}
+
+.card-cover-heart {
+  position: relative;
+  z-index: 3;
+
+  margin-top: 7px;
+
+  font-size: 18px;
+  color: #713c3e;
+}
+
+.gift-card.opening .card-cover {
+  transform: rotateX(-110deg);
+  opacity: 0;
+}
+
+.card-tiny-note {
+  margin: 20px 0 0;
+
+  font-family: "Comic Sans MS", "Bradley Hand", cursive;
+  font-size: 11px;
+
+  color: #9a716d;
+}
+
+
+/* =========================
+   SCREEN 7 — NOTE
+========================= */
+
+.note-screen {
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 60px 22px 80px;
+
+  background:
+    radial-gradient(
+      circle at 85% 8%,
+      rgba(216, 156, 157, 0.18),
+      transparent 26%
+    ),
+    #f9f1ea;
+}
+
+.note-content {
+  width: min(100%, 620px);
+  position: relative;
+}
+
+.note-heading {
+  margin: 16px 0 34px;
+
+  font-size: clamp(30px, 9vw, 50px);
+  line-height: 1;
+
+  color: #4a302e;
+  font-style: italic;
+}
+
+.letter {
+  position: relative;
+
+  padding: 30px 23px;
+
+  border: 1px solid rgba(113, 60, 62, 0.12);
+  border-radius: 6px;
+
+  background:
+    linear-gradient(
+      rgba(255, 252, 247, 0.95),
+      rgba(255, 249, 243, 0.95)
+    );
+
+  box-shadow:
+    0 12px 30px rgba(82, 48, 45, 0.07);
+}
+
+.letter::before {
+  content: "";
+
+  position: absolute;
+
+  top: 13px;
+  left: 13px;
+  right: 13px;
+
+  height: 1px;
+
+  background: rgba(113, 60, 62, 0.08);
+}
+
+.letter p {
+  margin: 0 0 21px;
+
+  font-size: 15px;
+  line-height: 1.85;
+
+  color: #5e4541;
+}
+
+.letter p:first-child {
+  font-size: 18px;
+  color: #49302e;
+}
+
+.letter-dialogue {
+  padding-left: 15px;
+
+  border-left: 2px solid rgba(113, 60, 62, 0.35);
+
+  font-style: italic;
+  color: #713c3e !important;
+}
+
+.letter-ending {
+  margin-top: 30px !important;
+  margin-bottom: 0 !important;
+
+  font-style: italic;
+  color: #713c3e !important;
+}
+
+.note-button {
+  display: block;
+
+  margin: 30px auto 0;
+}
+
+.note-decoration {
+  color: rgba(113, 60, 62, 0.22);
+}
+
+.note-star-one {
+  top: 10%;
+  left: 9%;
+  font-size: 23px;
+}
+
+.note-star-two {
+  top: 27%;
+  right: 7%;
+  font-size: 18px;
+}
+
+.note-heart-one {
+  top: 52%;
+  right: 8%;
+  font-size: 25px;
+}
+
+
+/* =========================
+   SCREEN 8 — ENDING
+========================= */
+
+.ending-screen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 40px 24px;
+
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(221, 156, 158, 0.23),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 10% 85%,
+      rgba(120, 54, 57, 0.08),
+      transparent 28%
+    ),
+    #f7eee7;
+}
+
+.ending-content {
+  width: min(100%, 480px);
+}
+
+.ending-main {
+  margin-top: 28px;
+}
+
+.ending-line {
+  margin: 0;
+
+  color: #543936;
+
+  opacity: 0;
+
+  animation: endingText 0.7s ease forwards;
+}
+
+.ending-line-one {
+  font-size: 31px;
+  font-style: italic;
+  animation-delay: 0.15s;
+}
+
+.ending-line-two {
+  margin-top: 12px;
+
+  font-size: 18px;
+  animation-delay: 0.35s;
+}
+
+.ending-line-three,
+.ending-line-four,
+.ending-line-five {
+  margin-top: 8px;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: #80605c;
+}
+
+.ending-line-three {
+  animation-delay: 0.55s;
+}
+
+.ending-line-four {
+  animation-delay: 0.7s;
+}
+
+.ending-line-five {
+  animation-delay: 0.85s;
+}
+
+.ending-line-six {
+  margin-top: 19px;
+
+  font-size: 27px;
+  font-style: italic;
+
+  color: #713c3e;
+
+  animation-delay: 1.05s;
+}
+
+@keyframes endingText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ending-note {
+  margin-top: 30px;
+
+  font-family: "Comic Sans MS", "Bradley Hand", cursive;
+  font-size: 13px;
+  line-height: 1.6;
+
+  color: #896460;
+}
+
+.ending-note p {
+  margin: 0;
+}
+
+.ending-note p:last-child {
+  color: #713c3e;
+}
+
+.ending-heart {
+  margin: 15px 0 9px;
+
+  font-size: 27px;
+
+  color: #8c4d50;
+}
+
+.ending-final {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.65;
+
+  color: #644744;
+}
+
+.ending-birthday {
+  margin: 18px 0 0;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #713c3e;
+}
+
+.ending-decoration {
+  color: rgba(113, 60, 62, 0.24);
+}
+
+.ending-star-one {
+  top: 13%;
+  left: 14%;
+  font-size: 22px;
+}
+
+.ending-star-two {
+  top: 21%;
+  right: 12%;
+  font-size: 18px;
+}
+
+.ending-heart-one {
+  bottom: 15%;
+  left: 13%;
+  font-size: 27px;
+}
+
+.ending-heart-two {
+  right: 12%;
+  bottom: 11%;
+  font-size: 21px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .screen {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .main-button {
+    min-width: 170px;
+    padding: 14px 26px 13px;
+
+    font-size: 10px;
+    letter-spacing: 2.7px;
+  }
+
+  .opening-content h1 {
+    font-size: clamp(45px, 14vw, 64px);
+  }
+
+  .opening-message {
+    font-size: 17px;
+  }
+
+  .error-content h2 {
+    font-size: clamp(52px, 17vw, 72px);
+  }
+
+  .troll-content h2 {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+
+  .birthday-content h1 {
+    font-size: clamp(36px, 11vw, 52px);
+  }
+
+  .birthday-title {
+    font-size: 20px;
+  }
+
+  .gift-card {
+    width: min(88vw, 320px);
+    height: 210px;
+  }
+
+  .card-inner h3 {
+    font-size: 31px;
+  }
+
+  .note-screen {
+    padding-top: 52px;
+    padding-bottom: 65px;
+  }
+
+  .letter {
+    padding: 27px 20px;
+  }
+
+  .letter p {
+    font-size: 14px;
+    line-height: 1.82;
+  }
+
+  .letter p:first-child {
+    font-size: 17px;
+  }
+
+  .ending-line-two {
+    font-size: 17px;
+  }
+
+  .ending-line-three,
+  .ending-line-four,
+  .ending-line-five {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-height: 680px) {
+
+  .opening-content .eyebrow {
+    margin-bottom: 16px;
+  }
+
+  .opening-message {
+    margin-top: 20px;
+  }
+
+  .tiny-note {
+    margin-bottom: 24px;
+  }
+
+  .birthday-content h1 {
+    margin-top: 12px;
+  }
+
+  .birthday-art {
+    margin-top: 18px;
+    margin-bottom: 14px;
+  }
+
+  .birthday-submessage {
+    margin-bottom: 20px;
+  }
+
+  .gift-card {
+    height: 190px;
+  }
+
+  .card-instruction {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 768px) {
+
+  .screen {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .note-screen {
+    padding-top: 70px;
+    padding-bottom: 90px;
+  }
+
+  .letter {
+    padding: 40px 42px;
+  }
+
+  .letter p {
+    font-size: 16px;
+  }
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .screen.active {
+    animation: none;
+  }
+
+  .ending-line {
+    animation: none;
+    opacity: 1;
+  }
+
+  .main-button,
+  .card-cover {
+    transition: none;
+  }
+}

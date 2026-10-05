@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Chota Hathi ❤️</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="birthday-site">
+
+  <!-- SCREEN 1 -->
+  <section class="screen opening-screen active" id="screen1">
+    <div class="decor decor-one">✦</div>
+    <div class="decor decor-two">♡</div>
+    <div class="decor decor-three">·</div>
+
+    <div class="opening-content">
+      <p class="eyebrow">a tiny little something</p>
+
+      <h1>
+        hey,<br>
+        <span>Chota Hathi.</span>
+      </h1>
+
+      <p class="opening-message">I made something for you.</p>
+
+      <p class="tiny-note">
+        yes, YOU. don't get too excited.
+      </p>
+
+      <button class="main-button" onclick="openFirstError()">
+        OPEN
+      </button>
+    </div>
+  </section>
+
+
+  <!-- SCREEN 2 -->
+  <section class="screen error-screen" id="screen2">
+    <div class="error-decoration">✦</div>
+
+    <div class="error-content">
+      <p class="error-code">ERROR 001</p>
+
+      <h2>Oops.</h2>
+
+      <p>
+        Something went wrong.<br>
+        Chota Hathi is not authorized to enter.
+      </p>
+
+      <button class="main-button" onclick="openSecondError()">
+        TRY AGAIN
+      </button>
+    </div>
+  </section>
+
+
+  <!-- SCREEN 3 -->
+  <section class="screen error-screen" id="screen3">
+    <div class="error-decoration error-decoration-right">♡</div>
+
+    <div class="error-content">
+      <p class="error-code">ACCESS DENIED</p>
+
+      <h2>Nope.</h2>
+
+      <p>
+        Reason:<br>
+        Being too cute + slightly annoying.
+      </p>
+
+      <button class="main-button" onclick="openFinalTroll()">
+        TRY AGAIN
+      </button>
+    </div>
+  </section>
+
+
+  <!-- SCREEN 4 -->
+  <section class="screen final-troll-screen" id="screen4">
+    <div class="troll-decoration troll-star">✦</div>
+    <div class="troll-decoration troll-heart">♡</div>
+
+    <div class="troll-content">
+      <p class="error-code">SYSTEM MESSAGE</p>
+
+      <h2>ERROR 404</h2>
+
+      <p class="troll-main">
+        Birthday Girl Not Found.
+      </p>
+
+      <p class="troll-wait">…wait.</p>
+
+      <p class="troll-found">Found her.</p>
+
+      <p class="troll-annoying">
+        Unfortunately, she's still annoying.
+      </p>
+
+      <div class="loading-area">
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+
+        <p class="loading-percentage">0%</p>
+      </div>
+
+      <p class="loading-failed">FAILED.</p>
+
+      <button class="main-button" onclick="enterBirthday()">
+        ENTER
+      </button>
+    </div>
+  </section>
+
+
+  <!-- SCREEN 5 -->
+  <section class="screen birthday-screen" id="birthday">
+    <div class="birthday-decoration birthday-star-one">✦</div>
+    <div class="birthday-decoration birthday-star-two">✧</div>
+    <div class="birthday-decoration birthday-heart-one">♡</div>
+    <div class="birthday-decoration birthday-heart-two">♡</div>
+
+    <div class="birthday-content">
+      <p class="chapter-label">finally.</p>
+
+      <h1>
+        okay, enough<br>
+        trolling.
+      </h1>
+
+      <p class="birthday-title">
+        Happy Birthday,<br>
+        <span>Chota Hathi.</span>
+      </p>
+
+      <div class="birthday-art">
+        <div class="birthday-art-placeholder">♡</div>
+      </div>
+
+      <p class="birthday-message">
+        Today is your day.
+      </p>
+
+      <p class="birthday-submessage">
+        And yes, I made this entire thing just for you.
+      </p>
+
+      <button class="main-button" onclick="startStory()">
+        START OUR STORY
+      </button>
+    </div>
+  </section>
+
+
+  <!-- SCREEN 6 -->
+  <section class="screen card-screen" id="cardScreen">
+    <div class="card-screen-content">
+
+      <p class="chapter-label">chapter 01</p>
+
+      <h2>
+        something I made<br>
+        for you.
+      </h2>
+
+      <p class="card-instruction">
+        Open this.
+      </p>
+
+      <div class="gift-card" onclick="openCard()">
+
+        <div class="card-base">
+          <div class="card-inner">
+
+            <p class="card-small-text">for my</p>
+
+            <h3>Chota Hathi</h3>
+
+            <p class="card-heart">♡</p>
+
+          </div>
+        </div>
+
+        <div class="card-cover">
+          <div class="card-cover-line"></div>
+
+          <p>tap to open</p>
+
+          <span class="card-cover-heart">♡</span>
+        </div>
+
+      </div>
+
+      <p class="card-tiny-note">
+        yes, there is an actual letter inside.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- SCREEN 7 -->
+  <section class="screen note-screen" id="noteScreen">
+
+    <div class="note-content">
+
+      <p class="chapter-label">chapter 02</p>
+
+      <p class="note-heading">
+        a letter from me to you
+      </p>
+
+      <article class="letter">
+
+        <p>Hey Chota Hathi,</p>
+
+        <p>Lots of love to you on your birthday. ❤️</p>
+
+        <p>
+          I know that this year, on your birthday, we aren't together.
+          We're miles away from each other, and honestly, it does feel
+          a little bad. This time, I didn't even really have anything
+          with me that I could give you as a proper birthday gift.
+        </p>
+
+        <p>
+          So I thought, at least I can do whatever I can to make your
+          birthday a little more special.
+        </p>
+
+        <p>
+          I really wish we were together right now. I wish we could cut
+          your birthday cake together, be happy, laugh over stupid things,
+          and do all those crazy things we usually do. But I guess life
+          had something else planned for us this time.
+        </p>
+
+        <p>
+          But no, we're not getting emotional here. 😅 It's your birthday.
+        </p>
+
+        <p>
+          And for me, this day is very, very special. Not just because
+          it's your birthday, but because it's the birthday of someone
+          who has been such an important part of my life.
+        </p>
+
+        <p>
+          You've always supported me. You've given me emotional support,
+          stayed beside me through my ups and downs, and somehow managed
+          to stay even when things weren't easy.
+        </p>
+
+        <p>
+          We've had our fights. We've had misunderstandings. We've had
+          moments where things could have easily fallen apart.
+        </p>
+
+        <p>
+          But you still didn't leave.
+        </p>
+
+        <p>
+          Instead, you stayed, we fixed things, and somehow, you were
+          still there beside me.
+        </p>
+
+        <p>
+          And honestly, I'm so lucky that I got you.
+        </p>
+
+        <p>
+          That's why this isn't just another birth date for me. It's an emotion.
+        </p>
+
+        <p>
+          Because this is the day someone very special to me was born.
+        </p>
+
+        <p>
+          And one of the things I love the most about you is that you've
+          never really judged me. Even after everything we've been through,
+          you've always accepted me for who I am.
+        </p>
+
+        <p>
+          And maybe that's why I feel so bad when I can't do much for you,
+          especially on a day that's supposed to be yours. I really wish
+          I could do more. I wish I could be there, make the day special
+          for you, and give you something that actually feels worthy of you.
+        </p>
+
+        <p>But then you just go,</p>
+
+        <p class="letter-dialogue">
+          “aree chal na” 😅
+        </p>
+
+        <p>
+          And somehow, you make me feel better about it.
+        </p>
+
+        <p>
+          This day is really special. Like, very special.
+        </p>
+
+        <p>
+          And I'm genuinely so happy that someone like you was born.
+        </p>
+
+        <p>
+          I hope you achieve everything you want in life. I hope you get
+          all the happiness this world has to offer, and I hope life gives
+          you countless reasons to smile.
+        </p>
+
+        <p>
+          And honestly, more than anything, I just want to see you happy.
+        </p>
+
+        <p>
+          For as long as I'm here.<br>
+          Till my last breath.
+        </p>
+
+        <p>
+          Once again, happy birthday, my mota, my chota hathi. ❤️
+        </p>
+
+        <p class="letter-ending">
+          Love you always.
+        </p>
+
+      </article>
+
+      <button class="main-button note-button" onclick="continueNote()">
+        KEEP READING
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- SCREEN 8 -->
+  <section class="screen ending-screen" id="endingScreen">
+
+    <div class="ending-content">
+
+      <p class="chapter-label">one more thing.</p>
+
+      <div class="ending-main">
+
+        <p class="ending-line ending-line-one">
+          07 / 10 / 2006
+        </p>
+
+        <p class="ending-line ending-line-two">
+          A very special date to me.
+        </p>
+
+        <p class="ending-line ending-line-three">
+          Because this is the day
+        </p>
+
+        <p class="ending-line ending-line-four">
+          my favourite person came into this world.
+        </p>
+
+        <p class="ending-line ending-line-five">
+          And somehow, I'm lucky enough to have you in my life.
+        </p>
+
+        <p class="ending-line ending-line-six">
+          I love you. ❤️
+        </p>
+
+      </div>
+
+      <div class="ending-note">
+        <p>And I hope life always gives you</p>
+        <p>reasons to smile and be happy.</p>
+      </div>
+
+      <div class="ending-heart">♡</div>
+
+      <p class="ending-final">
+        You deserve all the happiness<br>
+        this world has to offer.
+      </p>
+
+      <p class="ending-birthday">
+        Happy Birthday, my Chota Hathi. ♡
+      </p>
+
+    </div>
+  </section>
+
+</div>
+
+
+<script>
+  function switchScreen(nextScreenId) {
+    const currentScreen = document.querySelector(".screen.active");
+    const nextScreen = document.getElementById(nextScreenId);
+
+    if (!nextScreen) {
+      console.error("Screen not found:", nextScreenId);
+      return;
+    }
+
+    if (currentScreen === nextScreen) {
+      return;
+    }
+
+    nextScreen.scrollTop = 0;
+    nextScreen.classList.add("active");
+
+    if (currentScreen) {
+      currentScreen.classList.remove("active");
+    }
+  }
+
+  function openFirstError() {
+    switchScreen("screen2");
+  }
+
+  function openSecondError() {
+    switchScreen("screen3");
+  }
+
+  function openFinalTroll() {
+    const loadingProgress = document.querySelector(".loading-progress");
+    const loadingPercentage = document.querySelector(".loading-percentage");
+    const loadingFailed = document.querySelector(".loading-failed");
+    const enterButton = document.querySelector(".final-troll-screen .main-button");
+
+    if (loadingFailed) {
+      loadingFailed.style.opacity = "0";
+      loadingFailed.style.visibility = "hidden";
+    }
+
+    if (enterButton) {
+      enterButton.style.opacity = "0";
+      enterButton.style.visibility = "hidden";
+      enterButton.style.pointerEvents = "none";
+    }
+
+    if (loadingProgress) {
+      loadingProgress.style.width = "0%";
+    }
+
+    if (loadingPercentage) {
+      loadingPercentage.textContent = "0%";
+    }
+
+    switchScreen("screen4");
+
+    const startTime = performance.now();
+    const duration = 3000;
+
+    function updateLoading(currentTime) {
+      const elapsed = currentTime - startTime;
+      let progress = elapsed / duration;
+
+      if (progress > 1) {
+        progress = 1;
+      }
+
+      const percentage = Math.floor(progress * 100);
+
+      if (loadingProgress) {
+        loadingProgress.style.width = percentage + "%";
+      }
+
+      if (loadingPercentage) {
+        loadingPercentage.textContent = percentage + "%";
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(updateLoading);
+      }
+    }
+
+    requestAnimationFrame(updateLoading);
+
+    setTimeout(function () {
+      if (loadingFailed) {
+        loadingFailed.style.visibility = "visible";
+        loadingFailed.style.opacity = "1";
+      }
+
+      setTimeout(function () {
+        if (enterButton) {
+          enterButton.style.visibility = "visible";
+          enterButton.style.opacity = "1";
+          enterButton.style.pointerEvents = "auto";
+        }
+      }, 500);
+    }, 3100);
+  }
+
+  function enterBirthday() {
+    switchScreen("birthday");
+  }
+
+  function startStory() {
+    switchScreen("cardScreen");
+  }
+
+  let cardAlreadyOpened = false;
+
+  function openCard() {
+    const card = document.querySelector(".gift-card");
+
+    if (!card || cardAlreadyOpened) {
+      return;
+    }
+
+    cardAlreadyOpened = true;
+    card.classList.add("opening");
+
+    setTimeout(function () {
+      switchScreen("noteScreen");
+    }, 900);
+  }
+
+  function continueNote() {
+    switchScreen("endingScreen");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const allScreens = document.querySelectorAll(".screen");
+
+    allScreens.forEach(function (screen) {
+      screen.classList.remove("active");
+    });
+
+    const openingScreen = document.getElementById("screen1");
+
+    if (openingScreen) {
+      openingScreen.classList.add("active");
+    }
+  });
+</script>
